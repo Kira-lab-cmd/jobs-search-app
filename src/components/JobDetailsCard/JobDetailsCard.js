@@ -1,15 +1,18 @@
 import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import React from 'react'
 import Button from '../Button/Button'
+import RenderHtml from 'react-native-render-html';
 
 
 export default function JobDetailsCard({ handleSubmit, handleFavorited, jobDetail }) {
 
     const name = jobDetail.name
     const level = jobDetail.levels[0].name
-    const location = jobDetail.location[0].name
+    const location = jobDetail.locations[0].name
     const contents = jobDetail.contents
     const submit = jobDetail.refs.landing_page
+
+    const htmlContent = { html: contents, }
     return (
         <>
             <View style={styles.container}>
@@ -21,7 +24,7 @@ export default function JobDetailsCard({ handleSubmit, handleFavorited, jobDetai
                 <Text style={{ padding: 10, fontSize: 30, fontWeight: 'bold' }}>Job Detail</Text>
             </View>
             <ScrollView style={{ marginHorizontal: 10 }}>
-                <Text>{contents}</Text>
+                <RenderHtml source={htmlContent} />
             </ScrollView>
             <View style={styles.button_container}>
                 <Button text='Submit' onPress={() => handleSubmit(submit)} />

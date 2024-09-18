@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import JobDetailsCard from '../components/JobDetailsCard/JobDetailsCard';
+import { addJob } from '../redux/jobSlice';
 
 export default function Detail(params) {
 
@@ -12,7 +13,7 @@ export default function Detail(params) {
     const dispatch = useDispatch()
 
     const navigation = useNavigation()
-    const handleFavorited = async jobDetaıl => {
+    const handleFavorited = async jobDetail => {
         await dispatch(addJob(jobDetail))
         navigation.navigate('Favorited')
     }

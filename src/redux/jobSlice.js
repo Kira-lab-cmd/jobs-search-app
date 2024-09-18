@@ -14,7 +14,7 @@ export const jobSlice = createSlice({
             state.jobs.push(action.payload)
         },
         removeJob: (state, action) => {
-            state.jobs = state.jobs.filter((job) => job.id !== action.payload)
+            state.jobs = state.jobs.filter((job) => job.id !== action.payload.id)
         },
         clearJobs: state => {
             state.jobs = []

@@ -9,7 +9,7 @@ import React from 'react'
 
 export default function Button({ text, onPress }) {
     return (
-        <TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={onPress}>
             <Text style={styles.text}>{text}</Text>
         </TouchableOpacity>
     )
